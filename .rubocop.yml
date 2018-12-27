@@ -12,6 +12,7 @@ AllCops:
   Include:
     - '**/*.gemspec'
   Exclude:
+    - 'test/**/*'
     - 'vendor/**/*'
     - 'config/unicorn.rb'
     - 'bin/*'

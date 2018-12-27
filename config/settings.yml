@@ -1,3 +1,29 @@
 locales:
   available: ["en", "vi"]
   default: "en"
+users:
+  name:
+    max_length: 50
+  email:
+    max_length: 255
+  password:
+    min_length: 6
+comments:
+  content:
+    max_length: 140
+reviews:
+  content:
+    max_length: 500
+  title:
+    max_length: 140
+suggests:
+  content:
+    max_length: 140
+books:
+  title:
+    max_length: 140
+  author:
+    max_length: 140
+categories:
+    name:
+      max_length: 140
