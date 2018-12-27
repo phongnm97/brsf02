@@ -3,6 +3,4 @@ class BookStatus < ApplicationRecord
   has_one :activity, as: :object
   belongs_to :user
   belongs_to :book
-  validates :user_id, presence: true
-  validates :book_id, presence: true
 end
