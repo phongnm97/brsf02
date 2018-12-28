@@ -1,2 +1,4 @@
 en:
   hello: "Hello world"
+layout:
+  base_title: Framgia book reviewing

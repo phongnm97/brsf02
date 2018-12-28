@@ -1,4 +1,5 @@
 source "https://rubygems.org"
+gem "bcrypt", "3.1.12"
 gem "coffee-rails", "4.2.2"
 gem "config"
 gem "jbuilder", "2.7.0"
