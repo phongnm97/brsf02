@@ -28,7 +28,7 @@ module SessionsHelper
     else
       forget @user
     end
-    redirect_to @user
+    redirect_back_or @user
   end
 
   def forget user
