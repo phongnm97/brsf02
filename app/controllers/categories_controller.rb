@@ -1,6 +1,5 @@
 class CategoriesController < ApplicationController
   before_action :load_category, except: [:index, :new, :create]
-
   before_action :logged_in_user, :admin_user, except: [:show, :index]
   def show
     return unless @category.nil?
@@ -17,6 +16,15 @@ class CategoriesController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    if @category.destroy
+      flash[:success] = t "flash.deleted"
+    elsif @category.nil?
+      flash[:danger] = t "flash.nocategory"
+    end
+    redirect_to categories_path
   end
 
   def index

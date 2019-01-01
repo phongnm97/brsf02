@@ -1,0 +1,7 @@
+<li>
+  <%= link_to book.title, book %>
+  <% if !current_user.nil? &&current_user.admin? %>
+    | <%= link_to t(".delete"), book, method: :delete,
+    data: {confirm: t(".confirm")} %>
+  <% end %>
+</li>
