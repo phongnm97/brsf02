@@ -21,6 +21,13 @@ module SessionsHelper
     end
   end
 
+  def logged_in_user
+    return if logged_in?
+    store_location
+    flash[:danger] = t "flash.notlogin"
+    redirect_to login_url
+  end
+
   def login_user
     log_in @user
     if params[:session][:remember_me] == Settings.users.remember.chosen?

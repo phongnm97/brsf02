@@ -38,6 +38,12 @@ en:
       following: "Following"
     category:
       name: Name
+    book:
+      title: Book title
+      author: Author
+      publish_date: Publish date
+      pages_count: Pages
+      category: Category
   activerecord:
     attributes:
       user:
@@ -66,10 +72,12 @@ en:
     updated: "Update successful"
     created: "Create successful"
     nocategory: "Category not found"
-    deleted: "User deleted"
+    deleted: "Delete sucessful"
     notlogin: "Please log in"
     nouser: "User not found!"
     delete_fail: "Failed to delete user!"
+    nobook: "Book not found"
+
   shared:
     error_messages:
       error: Error
@@ -84,4 +92,16 @@ en:
       title: "Category list"
     new:
       title: "Create new category"
+      create: Create
+  books:
+    book:
+      delete: Delete
+      confirm: "Are you sure?"
+    edit:
+      title: Edit book
+      update: UPDATE
+    index:
+      title: Books list
+    new:
+      title: Add new book
       create: Create

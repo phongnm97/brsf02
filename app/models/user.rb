@@ -14,7 +14,7 @@ class User < ApplicationRecord
   has_many :passive_relationships, class_name:  Relationship.name,
     foreign_key: :followed_id, dependent: :destroy
   has_many :followers, through: :passive_relationships, source: :follower
-
+  has_many :marked_books, through: :book_statuses, source: :book
   attr_accessor :remember_token
 
   has_secure_password
@@ -58,6 +58,15 @@ class User < ApplicationRecord
     digest = send "#{attribute}_digest"
     return false if digest.nil?
     BCrypt::Password.new(digest).is_password?(token)
+  end
+
+  #mark reading and as_read
+  def reading book
+    book_statuses << BookStatus.new(book_id: book.id, status: "reading")
+  end
+
+  def as_read book
+    book_statuses << BookStatus.new(book_id: book.id, status: "as_read")
   end
 
   private
