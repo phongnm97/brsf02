@@ -78,3 +78,11 @@ en:
   shared:
     error_messages:
       error: Error
+  admin:
+    categories:
+      new:
+        create: "Create"
+        title: "New category"
+      index:
+        create: "Create"
+        delete: "Delete"
