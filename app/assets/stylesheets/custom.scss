@@ -338,3 +338,129 @@ ul{
 .post .post-footer .comments-list .comment > .comments-list {
   margin-left: 50px;
 }
+
+//admin temple
+#admin_body{
+  padding-top: 0px;
+}
+.custab{
+    border: 1px solid #ccc;
+    padding: 5px;
+    margin: 1% 0;
+    box-shadow: 3px 3px 2px #ccc;
+    transition: 0.5s;
+    }
+.custab:hover{
+    box-shadow: 3px 3px 0px transparent;
+    transition: 0.5s;
+    }
+
+// seach box for books
+.search-form {
+  border: 1px solid #ddd;
+  background-color: #fcfcfc;
+  border-radius: 2px;
+  padding: 16px;
+  height: auto;
+  margin-bottom:10px;
+}
+
+.search-form-submit {
+  color: white;
+  width: 100px;
+}
+
+/*    --------------------------------------------------
+  :: Table books filter
+  -------------------------------------------------- */
+#books_table {
+/*    --------------------------------------------------
+  :: General
+  -------------------------------------------------- */
+
+/*  --------------------------------------------------
+  :: Table Filter
+  -------------------------------------------------- */
+.panel {
+  border: 1px solid #ddd;
+  background-color: #fcfcfc;
+}
+.panel .btn-group {
+  margin: 15px 0 30px;
+}
+.panel .btn-group .btn {
+  transition: background-color .3s ease;
+}
+.table-filter {
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+}
+.table-filter tbody tr:hover {
+  cursor: pointer;
+  background-color: #eee;
+}
+.table-filter tbody tr td {
+  padding: 10px;
+  vertical-align: middle;
+  border-top-color: #eee;
+}
+.table-filter tbody tr.selected td {
+  background-color: #eee;
+}
+.table-filter tr td:first-child {
+  width: 40px;
+}
+.table-filter tr td:nth-child(2) {
+  padding-left: 0px;
+}
+
+.table-filter .star {
+  font-size: 18px;
+  color: #ccc;
+  text-align: center;
+  display: block;
+}
+.table-filter .star.star-checked {
+  color: #FF0000;
+}
+.table-filter .star:hover {
+  color: #ff8080;
+}
+.table-filter .star.star-checked:hover {
+  color: #ff8080;
+}
+
+.table-filter .media-meta {
+  font-size: 11px;
+  color: #999;
+}
+.table-filter .media .title {
+  color: #2BBCDE;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: normal;
+  margin: 0;
+}
+.table-filter .media .title span {
+  font-size: 11px;
+  margin-right: 10px;
+}
+.table-filter .media .title span.pagado {
+
+  color: #5cb85c;
+}
+.table-filter .media .title span.pendiente {
+  color: #f0ad4e;
+}
+.table-filter .media .title span.cancelado {
+  color: #d9534f;
+}
+.table-filter .media .summary {
+  font-size: 14px;
+  display: inline-block;
+  width: 30%
+}
+.table-filter .media .function{
+  margin-left: 5px
+}
+}

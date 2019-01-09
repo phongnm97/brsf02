@@ -1,0 +1,20 @@
+<%= form_for(@book, url: yield(:path)) do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+
+  <%= f.label t("model.book.title") %>
+  <%= f.text_field :title, class: "form-control" %>
+
+  <%= f.label t("model.book.author") %>
+  <%= f.text_field :author, class: "form-control" %>
+
+  <%= f.label t("model.book.publish_date") %>
+  <%= f.date_field :publish_date, class: "form-control" %>
+
+  <%= f.label t("model.book.pages_count") %>
+  <%= f.number_field :pages_count, in: 1.0..2000.0, step: 1, class: "form-control" %>
+
+  <%= f.label t("model.book.category") %>
+  <%= f.collection_select :category_id, Category.all, :id, :name, {}, {class: "form-control"}%>
+
+  <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+<% end %>

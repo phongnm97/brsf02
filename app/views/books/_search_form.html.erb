@@ -1,0 +1,12 @@
+<%= form_tag "/books", method: :get, class: "search-form" do %>
+  <%= label_tag t "model.book.title"%>
+  <%= text_field_tag :title_contains, params[:title_contains], placeholder: t(".title_holder"),
+    class: "form-control" %>
+  <%= label_tag t "model.book.author"%>
+  <%= text_field_tag :author_contains, params[:author_contains], placeholder: t(".author_holder"),
+    class: "form-control" %>
+  <%= label_tag t("model.book.category") %>
+  <%= collection_select("",:category_id_is, Category.all, :id, :name, {:include_blank => t(".all_categories")}, {class: "form-control"}) %>
+  <%= submit_tag t(".search"), name: nil,
+    class: "btn btn-success btn-m search-form-submit" %>
+<% end %>
