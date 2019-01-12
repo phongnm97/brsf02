@@ -18,5 +18,4 @@ class Book < ApplicationRecord
     end
     results
   end
-
 end

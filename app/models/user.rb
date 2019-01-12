@@ -3,6 +3,10 @@ class User < ApplicationRecord
   enum role: {user: 0, admin: 1}
   has_many :favorite_books, dependent: :destroy
   has_many :book_statuses, dependent: :destroy
+  has_many :reading_statuses, -> { where status: 0 } , class_name: "BookStatus"
+  has_many :reading_books, through: :reading_statuses, source: :book
+  has_many :as_read_statuses, -> { where status: 1 } , class_name: "BookStatus"
+  has_many :as_read_books, through: :as_read_statuses, source: :book
   has_many :reviews, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
@@ -14,6 +18,7 @@ class User < ApplicationRecord
   has_many :passive_relationships, class_name:  Relationship.name,
     foreign_key: :followed_id, dependent: :destroy
   has_many :followers, through: :passive_relationships, source: :follower
+  has_many :marked_books, through: :book_statuses, source: :book
   scope :newest, ->{order created_at: :desc}
   mount_uploader :avatar, AvatarUploader
   attr_accessor :remember_token

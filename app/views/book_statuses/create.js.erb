@@ -1,0 +1,5 @@
+$(".book_<%= @book_status.book_id %>").attr('data-status', '<%= @book_status.status %>');
+$(".book_<%= @book_status.book_id %>").find(".book_status").attr('status', '<%= @book_status.status %>');
+$(".book_<%= @book_status.book_id %>").find(".book_status").html('<%= @book_status.status %>');
+
+
