@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   before_save :downcase_email
   enum role: {user: 0, admin: 1}
-  has_many :favorite_books, dependent: :destroy
+  has_many :book_favorites, dependent: :destroy
   has_many :book_statuses, dependent: :destroy
   has_many :reading_statuses, -> { where status: 0 } , class_name: "BookStatus"
   has_many :reading_books, through: :reading_statuses, source: :book
@@ -19,7 +19,9 @@ class User < ApplicationRecord
     foreign_key: :followed_id, dependent: :destroy
   has_many :followers, through: :passive_relationships, source: :follower
   has_many :marked_books, through: :book_statuses, source: :book
+  has_many :favorite_books, through: :book_favorites, source: :book
   scope :newest, ->{order created_at: :desc}
+
   mount_uploader :avatar, AvatarUploader
   attr_accessor :remember_token
 

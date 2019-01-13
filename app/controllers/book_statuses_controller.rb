@@ -27,6 +27,7 @@ class BookStatusesController < ApplicationController
   end
 
   def destroy
+    @book = @book_status.book
     if @book_status.destroy
         respond_to do |format|
           format.html { redirect_to @book_status.book }

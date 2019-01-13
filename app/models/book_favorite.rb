@@ -1,4 +1,4 @@
-class FavoriteBook < ApplicationRecord
+class BookFavorite < ApplicationRecord
   enum status: {normal: 0, favorite: 1}
   belongs_to :user
   belongs_to :book

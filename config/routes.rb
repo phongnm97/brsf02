@@ -17,5 +17,6 @@ Rails.application.routes.draw do
     resources :users
     resources :books
     resources :book_statuses
+    resources :book_favorites
   end
 end

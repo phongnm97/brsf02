@@ -4,7 +4,13 @@ class BooksController < ApplicationController
   def show; end
 
   def index
-    @books = Book.search(params_book_search).paginate page: params[:page], per_page: Settings.users.index.per_page
+    if params[:status_is] == "reading"
+      @books = current_user.reading_books.search(params_book_search).paginate(page: params[:page], per_page: Settings.users.index.per_page)
+    elsif params[:status_is] == "as_read"
+      @books = current_user.as_read_books.search(params_book_search).paginate(page: params[:page], per_page: Settings.users.index.per_page)
+    else
+      @books = Book.search(params_book_search).paginate(page: params[:page], per_page: Settings.users.index.per_page)
+    end
   end
 
   private

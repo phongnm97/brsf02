@@ -22,6 +22,18 @@ ActiveRecord::Schema.define(version: 20190109010730) do
     t.index ["user_id"], name: "index_activities_on_user_id"
   end
 
+  create_table "book_favorites", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "book_id"
+    t.integer "status", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["book_id", "created_at"], name: "index_book_favorites_on_book_id_and_created_at"
+    t.index ["book_id"], name: "index_book_favorites_on_book_id"
+    t.index ["user_id", "created_at"], name: "index_book_favorites_on_user_id_and_created_at"
+    t.index ["user_id"], name: "index_book_favorites_on_user_id"
+  end
+
   create_table "book_statuses", force: :cascade do |t|
     t.integer "user_id"
     t.integer "book_id"
@@ -29,6 +41,7 @@ ActiveRecord::Schema.define(version: 20190109010730) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["book_id", "created_at"], name: "index_book_statuses_on_book_id_and_created_at"
+    t.index ["book_id", "user_id"], name: "index_book_statuses_on_book_id_and_user_id", unique: true
     t.index ["book_id"], name: "index_book_statuses_on_book_id"
     t.index ["user_id", "created_at"], name: "index_book_statuses_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_book_statuses_on_user_id"
@@ -59,18 +72,6 @@ ActiveRecord::Schema.define(version: 20190109010730) do
     t.datetime "updated_at", null: false
     t.index ["user_id", "created_at"], name: "index_comments_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_comments_on_user_id"
-  end
-
-  create_table "favorite_books", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "book_id"
-    t.integer "status", default: 0, null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["book_id", "created_at"], name: "index_favorite_books_on_book_id_and_created_at"
-    t.index ["book_id"], name: "index_favorite_books_on_book_id"
-    t.index ["user_id", "created_at"], name: "index_favorite_books_on_user_id_and_created_at"
-    t.index ["user_id"], name: "index_favorite_books_on_user_id"
   end
 
   create_table "likes", force: :cascade do |t|

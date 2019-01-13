@@ -1,9 +1,5 @@
 $(document).ready(function () {
 
-  $('.star').on('click', function () {
-      $(this).toggleClass('star-checked');
-    });
-
     $('.ckbox label').on('click', function () {
       $(this).parents('tr').toggleClass('selected');
     });

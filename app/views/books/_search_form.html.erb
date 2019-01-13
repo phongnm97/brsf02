@@ -7,6 +7,9 @@
     class: "form-control" %>
   <%= label_tag t("model.book.category") %>
   <%= collection_select("",:category_id_is, Category.all, :id, :name, {:include_blank => t(".all_categories")}, {class: "form-control"}) %>
-  <%= submit_tag t(".search"), name: nil,
-    class: "btn btn-success btn-m search-form-submit" %>
+  <% book_status = [[t('.all'), ''],[t('.reading'), 'reading'], [t('.as_read'), 'as_read']] %>
+  <%= label_tag t(".by_status") %>
+  <%= select_tag(:status_is,options_for_select(book_status),{class: "form-control"}) %>
+  <div class="text-center" ><%= submit_tag t(".search"), name: nil,
+    class: "btn btn-success btn-m search-form-submit" %></div>
 <% end %>

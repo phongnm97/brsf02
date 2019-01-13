@@ -1,0 +1,7 @@
+<div id="favorite_form_<%= book.id %>">
+<% if current_user.favorite_books.include?(book) %>
+  <%= render "unfavorite_button", book: book %>
+<% else %>
+  <%= render "favorite_button", book: book %>
+<% end %>
+</div>

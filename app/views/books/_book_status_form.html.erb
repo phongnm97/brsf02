@@ -1,0 +1,17 @@
+<div class="btn-group btn-group-primary pull-right">
+  <button class="btn btn-primary btn-sm" type="button">Write Review</button>
+  <button data-toggle="dropdown" class="btn btn-primary btn-sm dropdown-toggle" type="button"><span class="caret"></span>
+  </button>
+  <div class="dropdown-menu" id = "status_form_<%= book.id %>">
+    <%= if current_user.reading_books.include?(book)
+        render("status_button_form", {book: book, status: "as_read", button: t(".mark_as_read")})+
+        (render "unread_form", {book: book, status: "unread", button: t(".mark_as_unread")})
+      elsif current_user.as_read_books.include?(book)
+        render("status_button_form", {book: book, status: "reading", button: t(".mark_as_reading")})+
+        (render "unread_form", {book: book, status: "unread", button: t(".mark_as_unread")})
+      else
+        render("status_button_form", {book: book, status: "reading", button: t(".mark_as_reading")}) +
+        (render "status_button_form", {book: book, status: "as_read", button: t(".mark_as_read")})
+    end %>
+  </div>
+</div>

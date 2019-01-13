@@ -94,5 +94,27 @@ en:
     search_form:
       title_holder: Book title content..
       author_holder: Book by..
+      reading: Reading book
+      as_read: As read book
+      unread: Unread book
+      by_status: By status
+      search: Search
     index:
       title: Book List
+    book_status_form:
+      mark_as_read: Mark as read
+      mark_as_unread: Mark as unread
+      mark_as_reading: Mark as reading
+  book_statuses:
+    destroy:
+      mark_as_read: Mark as read
+      mark_as_unread: Mark as unread
+      mark_as_reading: Mark as reading
+    create:
+      mark_as_read: Mark as read
+      mark_as_unread: Mark as unread
+      mark_as_reading: Mark as reading
+    update:
+      mark_as_read: Mark as read
+      mark_as_unread: Mark as unread
+      mark_as_reading: Mark as reading

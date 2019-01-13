@@ -15,6 +15,9 @@ $gray-dark-dark: #333;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
+  .media .media-body{
+    overflow: none !important;
+  }
 
 /* universal */
 body {
@@ -358,7 +361,7 @@ ul{
 // seach box for books
 .search-form {
   border: 1px solid #ddd;
-  background-color: #fcfcfc;
+  background-color: #A9A9A9;
   border-radius: 2px;
   padding: 16px;
   height: auto;
@@ -383,14 +386,9 @@ ul{
   -------------------------------------------------- */
   .panel {
     border: 1px solid #ddd;
-    background-color: #fcfcfc;
+    background-color: #A9A9A9;
   }
-  .panel .btn-group {
-    margin: 15px 0 30px;
-  }
-  .panel .btn-group .btn {
-    transition: background-color .3s ease;
-  }
+
   .table-filter {
     background-color: #fff;
     border-bottom: 1px solid #eee;
@@ -430,38 +428,51 @@ ul{
     color: #ff8080;
   }
 
+
   .table-filter .media-meta {
     font-size: 11px;
     color: #999;
   }
-  .table-filter .media .title {
+  .table-filter .title {
     color: #2BBCDE;
     font-size: 14px;
     font-weight: bold;
     line-height: normal;
     margin: 0;
   }
-  .table-filter .media .title span {
+  .table-filter .title span {
     font-size: 11px;
     margin-right: 10px;
   }
-  .table-filter .media .title span[status=reading] {
+  .table-filter .title span[status=reading] {
 
     color: #5cb85c;
   }
-  .table-filter .media .title span[status=as_read] {
+  .table-filter .title span[status=as_read] {
     color: #f0ad4e;
   }
-  .table-filter .media .title span.cancelado {
+  .table-filter .title span.cancelado {
     color: #d9534f;
   }
-  .table-filter .media .summary {
+  .table-filter .summary {
     font-size: 14px;
     display: inline-block;
     width: 30%
   }
-  .table-filter .media .function{
+  .table-filter .function{
     line-height: 18px;
     margin-left: 5px;
+  }
+  .btn-group-primary .dropdown-menu{
+    padding: 10px 10px 0px 10px;
+    border-color: $gray-dark-dark;
+  }
+
+  .btn-group-primary .dropdown-menu .btn {
+    border: none;
+    margin-bottom: 10px;
+  }
+  .pagination{
+    margin: 0px 5px;
   }
 }

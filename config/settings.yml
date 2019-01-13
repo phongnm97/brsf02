@@ -3,7 +3,7 @@ locales:
   default: "en"
 users:
   index:
-    perpage: 20
+    per_page: 18
   name:
     max_length: 50
   email:
