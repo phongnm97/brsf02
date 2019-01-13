@@ -19,8 +19,8 @@
         <%= status %>
       </span>
     </h4>
-    <span class="summary"><%= book.author %></span>
-    <span class="summary"><%= book.author %></span>
+    <span class="summary"><%= t("model.book.author") + book.author %></span>
+    <span class="summary"><%= pluralize(book.pages_count, t("model.book.page")) %></span>
      <%= render "book_status_form", book: book %>
   </td>
 </tr>

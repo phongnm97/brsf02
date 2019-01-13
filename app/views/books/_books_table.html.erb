@@ -4,8 +4,12 @@
       <div class="table-container">
         <table class="table table-filter">
           <tbody>
+            <% if @books.empty? %>
+            <%= t ".no_book_found" %>
+            <% else %>
             <%= render @books %>
             <%= will_paginate %>
+            <% end %>
           </tbody>
         </table>
       </div>

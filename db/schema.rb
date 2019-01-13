@@ -83,17 +83,6 @@ ActiveRecord::Schema.define(version: 20190109010730) do
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
-  create_table "rates", force: :cascade do |t|
-    t.integer "stars", default: 0, null: false
-    t.integer "user_id"
-    t.integer "book_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["book_id"], name: "index_rates_on_book_id"
-    t.index ["user_id", "book_id"], name: "index_rates_on_user_id_and_book_id"
-    t.index ["user_id"], name: "index_rates_on_user_id"
-  end
-
   create_table "relationships", force: :cascade do |t|
     t.integer "follower_id"
     t.integer "followed_id"
@@ -107,6 +96,7 @@ ActiveRecord::Schema.define(version: 20190109010730) do
   create_table "reviews", force: :cascade do |t|
     t.text "title"
     t.text "content"
+    t.integer "stars", default: 0, null: false
     t.integer "user_id"
     t.integer "book_id"
     t.datetime "created_at", null: false

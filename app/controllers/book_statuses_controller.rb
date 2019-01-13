@@ -1,5 +1,6 @@
 class BookStatusesController < ApplicationController
   before_action :load_book_status, except: :create
+  before_action :logged_in_user
 
   def create
     @book_status =  current_user.book_statuses.build(book_status_params)

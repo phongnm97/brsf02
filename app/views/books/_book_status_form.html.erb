@@ -1,5 +1,5 @@
 <div class="btn-group btn-group-primary pull-right">
-  <button class="btn btn-primary btn-sm" type="button">Write Review</button>
+  <button class="btn btn-primary btn-sm" id="review" onclick="review(this)" data-book-id= "<%= book.id %>" data-book-title = "<%= book.title %>" data-toggle="modal" data-target="#myModal">Write Review</button>
   <button data-toggle="dropdown" class="btn btn-primary btn-sm dropdown-toggle" type="button"><span class="caret"></span>
   </button>
   <div class="dropdown-menu" id = "status_form_<%= book.id %>">

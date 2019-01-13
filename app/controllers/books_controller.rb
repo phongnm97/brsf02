@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
   before_action :load_book, except: [:index, :new, :create]
+  before_action :logged_in_user
 
   def show; end
 

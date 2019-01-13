@@ -1,3 +1,19 @@
+User.create!(
+  name: "Admin",
+  email: "admin@framgia.com",
+  password: "123456",
+  password_confirmation: "123456",
+  role: "admin")
+Category.create!(
+  name: "Sample category")
+Category.create!(
+  name: "Sample category 2")
+Book.create!(
+  title: "My first book",
+  author: "Minh Phong",
+  category_id: 1,
+  publish_date: Time.zone.now
+  )
 99.times do |n|
   name  = Faker::Name.name
   email = "example-#{n+1}@railstutorial.org"

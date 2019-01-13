@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="autor-biografia">
+    <img class="avatar-autor img-fluid"" src=<%= @review.user.avatar.url %> >
+    <div class="autor-info">
+        <h3><a href=<%= user_path @review.user %> target="_blank"><%=@review.user.name %></a></h3>
+        <h4 class="alert alert-success"><%= @review.title %></h4>
+        <ul class="list-group">
+          <div class="list-group-item d-flex justify-content-between align-items-center">
+            <%= t ".book"%>
+            <%= link_to  @review.book.title, @review.book %>
+            <span class="badge badge-warning badge-pill"><%= @review.stars %><i class="fa fa-star" aria-hidden="true"></i></span>
+          </div>
+        </ul>
+    </div><!-- .autor-info-->
+  </div><!-- .autor-biografia-->
+  <br><hr><br>
+  <div class="row">
+    <p class="lead">
+      <%= @review.content %>
+    </p>
+  </div>
+</div>

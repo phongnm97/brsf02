@@ -1,5 +1,7 @@
 class BookFavoritesController < ApplicationController
   before_action :load_book_favorite, except: :create
+  before_action :logged_in_user
+
   def create
     @book_favorite =  current_user.book_favorites.build(book_favorite_params)
     if(@book_favorite.save)

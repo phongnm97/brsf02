@@ -7,6 +7,8 @@ class Book < ApplicationRecord
     length: {maximum: Settings.books.title.max_length}
   validates :author, presence: true,
     length: {maximum: Settings.books.author.max_length}
+  validates :pages_count, presence: true,
+    numericality: { only_integer: true, less_than_or_equal_to: 2000, more_than: 0 }
   scope :title_contains, ->(title){where "title LIKE ?", "%#{title}%"}
   scope :author_contains, ->(author){where "author LIKE ?", "%#{author}%"}
   scope :category_id_is, ->(category_id){where "category_id LIKE ?", category_id}
