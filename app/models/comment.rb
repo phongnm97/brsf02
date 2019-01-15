@@ -5,6 +5,7 @@ class Comment < ApplicationRecord
     foreign_key: :parent_id
   validates :content, presence: true,
     length: {maximum: Settings.comments.content.max_length}
+  scope :newest, ->{order created_at: :desc}
   private
 
     def create_activity

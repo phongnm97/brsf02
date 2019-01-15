@@ -147,3 +147,12 @@ en:
         favorite: "add to favorite list "
         follow: "follow "
         followed: "followed by "
+  activities:
+    box:
+      comment: comment
+  comments:
+    edit_form:
+      delete: Delete comment
+      update: Update comment
+    comment:
+      edit_comment: Edit comment

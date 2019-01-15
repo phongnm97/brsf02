@@ -1,9 +1,10 @@
 <% if logged_in? %>
 <% provide :title, t(".title") %>
 <div class="container">
-
-    <%= render "shared/feed" %>
-
+  <div class="col-sm-8">
+  <%= render "shared/feed" %>
+  </div>
+  <%= render "comments/edit_form" %>
 </div>
 <% else %>
 <% provide :title, t(".title") %>
