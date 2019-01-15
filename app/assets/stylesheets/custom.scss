@@ -255,12 +255,12 @@ ul{
 }
 
 .post .post-heading {
-  height: 95px;
-  padding: 15px 15px;
+  height: 80px;
+  padding: 15px 15px 10px 15px;
 }
 .post .post-heading .avatar {
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   display: block;
   margin-right: 15px;
 }
@@ -282,13 +282,13 @@ ul{
   height: auto;
 }
 .post .post-description {
-  padding: 15px;
+  padding: 0px 15px 15px 15px;
 }
 .post .post-description p {
   font-size: 14px;
 }
 .post .post-description .stats {
-  margin-top: 20px;
+  margin-top: 0px;
 }
 .post .post-description .stats .stat-item {
   display: inline-block;
@@ -563,3 +563,25 @@ ul{
     width: 25%;
   }
 
+//folow stat
+.follow_stats {
+  overflow: auto;
+  margin-top: 0;
+  padding: 0;
+  a {
+    float: left;
+    padding: 0 10px;
+    border-left: 1px solid $gray-lighter;
+    &:first-child {
+      padding-left: 0;
+      border: 0;
+    }
+    &:hover {
+      text-decoration: none;
+      color: blue;
+    }
+  }
+  strong {
+    display: block;
+  }
+}

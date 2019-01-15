@@ -48,6 +48,21 @@ class User < ApplicationRecord
     BCrypt::Password.create string, cost: cost
   end
 
+  # Follows a user.
+  def follow(other_user)
+    following << other_user
+  end
+
+  # Unfollows a user.
+  def unfollow(other_user)
+    following.delete(other_user)
+  end
+
+  # Returns true if the current user is following the other user.
+  def following?(other_user)
+    following.include?(other_user)
+  end
+
   # Returns a random token.
   def self.new_token
     SecureRandom.urlsafe_base64
@@ -66,6 +81,13 @@ class User < ApplicationRecord
     digest = send "#{attribute}_digest"
     return false if digest.nil?
     BCrypt::Password.new(digest).is_password? token
+  end
+
+  def feed
+    following_ids = "SELECT followed_id FROM relationships
+      WHERE  follower_id = :user_id"
+    Activity.where("user_id IN (#{following_ids})
+      OR user_id = :user_id", user_id: id)
   end
 
   private

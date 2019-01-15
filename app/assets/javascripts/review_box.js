@@ -4,9 +4,8 @@ function review(book_review){
     $("#selected_rating").val(0);
 
   };
-$(document).ready(function(){
-$(".btnrating").on('click',(function(e) {
-
+$(document).on('click','.btnrating',
+function okkk(e){
 var previous_value = $("#selected_rating").val();
 var selected_value = $(this).attr("data-attr");
 console.log(previous_value);
@@ -22,5 +21,5 @@ for (ix = 1; ix <= previous_value; ++ix) {
 $("#rating-star-"+ix).toggleClass('btn-warning');
 $("#rating-star-"+ix).toggleClass('btn-default');
 }
-}));
 });
+

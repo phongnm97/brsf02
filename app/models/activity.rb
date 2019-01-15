@@ -4,4 +4,5 @@ class Activity < ApplicationRecord
   has_many :comments, class_name:  Comment.name,
     foreign_key: :parent_id, dependent: :destroy
   has_many :likes, dependent: :destroy
+  scope :newest, ->{order created_at: :desc}
 end

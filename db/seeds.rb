@@ -12,6 +12,7 @@ Book.create!(
   title: "My first book",
   author: "Minh Phong",
   category_id: 1,
+  pages_count: 50,
   publish_date: Time.zone.now
   )
 99.times do |n|
@@ -31,5 +32,6 @@ end
       title: title,
       category_id: 1,
       author: title,
+      pages_count: 50,
       publish_date: Book.find(1).publish_date)
 end

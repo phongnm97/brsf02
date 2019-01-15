@@ -37,6 +37,8 @@ en:
       confirmation: "Confirm password"
       followers: "Followers"
       following: "Following"
+      follow: Follow
+      unfollow: Unfollow
     book:
       page: "page"
       title: "Title"
@@ -136,3 +138,12 @@ en:
       update: UPDATE
     form:
       rating: Rating
+  activities:
+    activity:
+      post:
+        review: "write a review for "
+        reading: "is reading "
+        as_read: "readed "
+        favorite: "add to favorite list "
+        follow: "follow "
+        followed: "followed by "
