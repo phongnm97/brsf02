@@ -10,8 +10,7 @@ class ReviewsController < ApplicationController
   def edit; end
 
   def update
-    debugger
-    if @review.update_attributes(review_params) && @review.present?
+    if @review.update_attributes(review_params)
       flash[:success] = t "flash.updated"
       redirect_to @review
     else

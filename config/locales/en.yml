@@ -29,6 +29,7 @@ en:
       title: "Contact"
     home:
       title: "Home"
+      application: FRAMGIA Book reviewing system
   model:
     user:
       name: "Name"
@@ -87,6 +88,8 @@ en:
     expire_reset: "Password reset has expired."
     success_reset: "Password reset success."
   shared:
+    feed:
+      no_activities: No activities, create some!
     error_messages:
       error: Error
   admin:
@@ -147,8 +150,8 @@ en:
         favorite: "add to favorite list "
         follow: "follow "
         followed: "followed by "
-  activities:
     box:
+      like: like
       comment: comment
   comments:
     edit_form:
@@ -156,3 +159,8 @@ en:
       update: Update comment
     comment:
       edit_comment: Edit comment
+  likes:
+    like:
+      like: like
+    unlike:
+      like: like

@@ -26,7 +26,24 @@
             <li class="list-group-item"><span class="badge"><%= Category.count %></span><%= t ".list" %></li>
           </a>
           <a href= <%= new_admin_category_path %>
-            <li class="list-group-item"><span class="badge"><%= Category.count %></span><%= t ".new_category" %></li>
+            <li class="list-group-item"><%= t ".new_category" %></li>
+          </a>
+        </ul>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <a data-toggle="collapse" data-parent="#accordion" href="#books_collapse">
+          <h4 class="panel-title"><%= t ".books" %></h4>
+        </a>
+      </div>
+      <div id="books_collapse" class="panel-collapse collapse in">
+        <ul class="list-group">
+          <a href= <%= admin_books_path %>
+            <li class="list-group-item"><span class="badge"><%= Book.count %></span><%= t ".list" %></li>
+          </a>
+          <a href= <%= new_admin_book_path %>
+            <li class="list-group-item"><%= t ".new_category" %></li>
           </a>
         </ul>
       </div>

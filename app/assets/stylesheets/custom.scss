@@ -254,6 +254,17 @@ ul{
   border: 1px solid $gray-dark-medium;
 }
 
+.like_button{
+  i{
+    margin-right: 5px
+  }
+  float:left;
+  margin: 0px 10px;
+  .clicked{
+    background-color: #FF0000;
+  }
+}
+
 .post .post-heading {
   height: 80px;
   padding: 15px 15px 10px 15px;

@@ -13,7 +13,7 @@ class BooksController < ApplicationController
       @books = Book.all.search(params_book_search)
       # Book.join_status(current_user.id)
     end
-    @books = @books.paginate(page: params[:page], per_page: Settings.users.index.per_page)
+    @books = @books.includes(:book_statuses).paginate(page: params[:page], per_page: Settings.users.index.per_page)
   end
 
   private

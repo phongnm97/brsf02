@@ -16,12 +16,14 @@
     <div class="post-description">
       <p><%= description %></p>
       <div class="stats">
-        <a href="#" class="btn btn-default stat-item">
-          <i class="fa fa-thumbs-up icon"></i><%= t ".likecount" %>
-        </a>
-        <div class="btn btn-default stat-item">
+        <div class="row">
+        <div class="like_button" id="like-<%= activity.id %>">
+          <%= render "likes/form", activity: activity %>
+        </div>
+        <div class="btn btn-primary stat-item">
           <i class="fa fa-comment icon"></i><span class="comment_count"><%= pluralize(activity.comments.count, t(".comment")) %></span>
         </div>
+      </div>
       </div>
     </div>
     <div class= '<%= "post-footer activity-comment-#{activity.id}" %>'>

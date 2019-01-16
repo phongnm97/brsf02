@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :liked_activities, through: :likes, source: :activity
   has_many :suggests, dependent: :destroy
   has_many :activities, dependent: :destroy
   has_many :active_relationships, class_name:  Relationship.name,
@@ -61,6 +62,10 @@ class User < ApplicationRecord
   # Returns true if the current user is following the other user.
   def following?(other_user)
     following.include?(other_user)
+  end
+
+  def liked?(activity)
+    liked_activities.include?(activity)
   end
 
   # Returns a random token.

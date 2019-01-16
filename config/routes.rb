@@ -19,6 +19,7 @@ Rails.application.routes.draw do
         get :following, :followers
       end
     end
+    resources :likes
     resources :comments
     resources :books
     resources :book_statuses

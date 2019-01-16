@@ -7,14 +7,14 @@
   end
 %>
 
-<tr data-status="<%= status %>" class="book_<%= book.id %>">
+<tr data-status="<%= status %>" class="book_<%= book.id %>"  >
   <td>
     <%= render "favorite_form", book: book %>
   </td>
   <td>
     <span class="media-meta pull-right"><%= book.publish_date %></span>
     <h4 class="title">
-      <%= book.title %>
+      <a href=<%= book_path(book) %>><%= book.title %></a>
       <span class="pull-right book_status" status=<%= status %>>
         <%= status %>
       </span>
