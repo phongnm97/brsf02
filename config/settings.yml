@@ -1,14 +1,30 @@
 locales:
   available: ["en", "vi"]
   default: "en"
+books_index:
+  per_page: 20
+categories_index:
+  per_page: 20
+book:
+  picture:
+    default: "/uploads/book_cover.jpg"
 users:
+  index:
+    per_page: 18
   name:
     max_length: 50
   email:
     max_length: 255
   password:
     min_length: 6
+  remember:
+    chosen: "1"
+  avatar:
+    default: "/uploads/user/avatar/orig.png"
+    type: "image/jpeg,image/gif,image/png"
+  banner:
 comments:
+  perpage: 7
   content:
     max_length: 140
 reviews:
@@ -21,7 +37,7 @@ suggests:
     max_length: 140
 books:
   title:
-    max_length: 140
+    max_length: 80
   author:
     max_length: 140
 categories:
