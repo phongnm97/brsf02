@@ -7,6 +7,12 @@
     <p class="lead">
       <%= t "dictionary.by" %>
       <a href="<%= user_path(@user) %>"><%= @user.name %></a>
+      <% if current_user == @review.user %>
+      <%= link_to t(".edit"), edit_review_path(@review),
+        class: "btn btn-xs btn-primary pull-right" %>
+      <%= link_to t(".delete"), review_path(@review), method: :delete,
+        data: {confirm: t(".confirm")}, class: "btn btn-xs btn-danger pull-right" %>
+      <% end %>
     </p>
     <hr>
     <!-- Date/Time -->
@@ -57,4 +63,4 @@
     </div>
   </div>
 </div>
-  <%= render "comments/edit_form" %>
+<%= render "comments/edit_form" %>

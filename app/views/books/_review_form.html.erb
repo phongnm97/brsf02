@@ -13,9 +13,9 @@
         <%= form_for(@review) do |f| %>
           <div><%= hidden_field_tag "review[book_id]", "", {class: "form-control input-sm", id: "review_book_id" } %></div>
           <%= f.label t("model.review.title") %>
-          <%= f.text_field :title, {class: "form-control",placeholder: (t ".title_holder") } %>
+          <%= f.text_field :title, {class: "form-control",placeholder: (t ".title_holder"),:required => true } %>
           <%= f.label t("model.review.content") %>
-          <%= f.text_area :content, class: "form-control",placeholder: (t ".content_holder") %>
+          <%= f.text_area :content, class: "form-control",placeholder: (t ".content_holder"),:required => true %>
           <input type="hidden" id="selected_rating" name="review[stars]" value="0" required="required">
           <button type="button" class="btnrating btn btn-md  pull-right btn-default" data-attr="5" id="rating-star-5">
             <i class="fa fa-star" aria-hidden="true"></i>

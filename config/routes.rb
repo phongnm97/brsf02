@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   scope "(:locale)", locale: /en|vi/ do
     root "static_pages#home"
     namespace :admin do
@@ -9,16 +10,6 @@ Rails.application.routes.draw do
     end
     get "/about", to: "static_pages#about"
     get "/contact", to: "static_pages#contact"
-    get "/signup", to: "users#new"
-    post "/signup", to: "users#create"
-    get "/login", to: "sessions#new"
-    post "/login", to: "sessions#create"
-    delete "/logout", to: "sessions#destroy"
-    resources :users do
-      member do
-        get :following, :followers
-      end
-    end
     resources :likes
     resources :comments
     resources :books
@@ -26,5 +17,6 @@ Rails.application.routes.draw do
     resources :book_favorites
     resources :reviews
     resources :relationships, only: [:create, :destroy]
+    resources :users, only: [:show, :index]
   end
 end

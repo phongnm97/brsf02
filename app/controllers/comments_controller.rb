@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
+  before_action :authenticate_user!
   before_action :load_comment, except: [:create]
-  before_action :logged_in_user
   before_action :correct_user, except: [:create]
 
   def create
@@ -48,7 +48,7 @@ class CommentsController < ApplicationController
   end
 
   def correct_user
-    return if current_user?(@comment.user)
+    return if current_user == @comment.user
     flash[:danger] = t "flash.wronguser"
     redirect_to root_path
   end

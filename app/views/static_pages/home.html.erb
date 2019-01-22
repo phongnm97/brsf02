@@ -1,5 +1,5 @@
   <% provide :title, t(".title") %>
-<% if logged_in? %>
+<% if user_signed_in? %>
   <div class="container">
     <div class="col-sm-8">
     <%= render "shared/feed" %>
@@ -9,6 +9,6 @@
 <% else %>
   <div class="center jumbotron">
     <h1><%= t ".application" %></h1>
-    <%= link_to t("layout.Signupnow"), signup_path, class: "btn btn-lg btn-primary" %>
+    <%= link_to t("layouts.Signupnow"), new_user_registration_path, class: "btn btn-lg btn-primary" %>
   </div>
 <% end %>

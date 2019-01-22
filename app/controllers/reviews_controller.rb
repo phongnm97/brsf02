@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
+  before_action :authenticate_user!
   before_action :load_review, except: [:index, :new, :create]
-  before_action :logged_in_user
   before_action :correct_user, only: [:edit, :destroy, :update]
 
   def show
@@ -55,12 +55,12 @@ class ReviewsController < ApplicationController
   end
 
   def correct_user
-    return if current_user?(@review.user)
+    return if current_user == @review.user
     flash[:danger] = t "flash.wronguser"
     redirect_to root_path
   end
 
-    def review_params
-      params.require(:review).permit(:title, :content, :book_id, :stars )
-    end
+  def review_params
+    params.require(:review).permit :title, :content, :book_id, :stars
+  end
 end

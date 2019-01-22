@@ -1,6 +1,6 @@
 class BookFavoritesController < ApplicationController
+  before_action :authenticate_user!
   before_action :load_book_favorite, only: :destroy
-  before_action :logged_in_user
   before_action :correct_user, only: :destroy
   def create
     @book_favorite =  current_user.book_favorites.build book_favorite_params

@@ -1,4 +1,8 @@
 class User < ApplicationRecord
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
   before_save :downcase_email
   enum role: {user: 0, admin: 1}
   has_many :book_favorites, dependent: :destroy
@@ -26,7 +30,6 @@ class User < ApplicationRecord
   mount_uploader :avatar, AvatarUploader
   attr_accessor :remember_token
 
-  has_secure_password
   validates :password, presence: true,
   length: {minimum: Settings.users.password.min_length}, allow_nil: true
   before_save{email.downcase!}
