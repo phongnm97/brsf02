@@ -1,6 +1,5 @@
 class Admin::BooksController < AdminController
   layout "admin"
-  before_action :load_book, except: [:index, :new, :create]
 
   def destroy
     if @book.destroy

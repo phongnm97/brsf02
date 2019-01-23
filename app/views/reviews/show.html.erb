@@ -7,7 +7,7 @@
     <p class="lead">
       <%= t "dictionary.by" %>
       <a href="<%= user_path(@user) %>"><%= @user.name %></a>
-      <% if current_user == @review.user %>
+      <% if can? [:destroy, :edit], @review %>
       <%= link_to t(".edit"), edit_review_path(@review),
         class: "btn btn-xs btn-primary pull-right" %>
       <%= link_to t(".delete"), review_path(@review), method: :delete,

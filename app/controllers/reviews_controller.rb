@@ -1,8 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :authenticate_user!
-  before_action :load_review, except: [:index, :new, :create]
-  before_action :correct_user, only: [:edit, :destroy, :update]
-
+  load_and_authorize_resource
   def show
     @activity = @review.activity
     @comments = @activity.comments.includes(:user).paginate page: params[:page],
@@ -48,17 +45,6 @@ class ReviewsController < ApplicationController
   end
 
   private
-
-  def load_review
-    @review = Review.find_by id: params[:id]
-    flash[:danger] = t "flash.noreview" if @review.nil?
-  end
-
-  def correct_user
-    return if current_user == @review.user
-    flash[:danger] = t "flash.wronguser"
-    redirect_to root_path
-  end
 
   def review_params
     params.require(:review).permit :title, :content, :book_id, :stars

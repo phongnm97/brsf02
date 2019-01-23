@@ -3,6 +3,8 @@ en:
     by: By
   errors:
     picture_size: "should be less than 5MB"
+    access_denied: " You are not allowed to access this page "
+    record_notfound: "Error: Object Not found"
   hello: "Hello world"
   layouts:
     users: Users

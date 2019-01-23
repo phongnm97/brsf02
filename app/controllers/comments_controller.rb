@@ -1,8 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :authenticate_user!
-  before_action :load_comment, except: [:create]
-  before_action :correct_user, except: [:create]
-
+  load_and_authorize_resource
   def create
     @comment =  current_user.comments.build comment_params
     if @comment.save
@@ -45,19 +42,6 @@ class CommentsController < ApplicationController
 
   def comment_params
     params.require(:comment).permit(:parent_id, :content)
-  end
-
-  def correct_user
-    return if current_user == @comment.user
-    flash[:danger] = t "flash.wronguser"
-    redirect_to root_path
-  end
-
-  def load_comment
-    @comment = Comment.find_by id: params[:id]
-    return if @comment
-    redirect_to root_path
-    flash[:danger] = t "flash.nocomment"
   end
 end
 

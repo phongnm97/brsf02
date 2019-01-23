@@ -1,7 +1,5 @@
 class BookFavoritesController < ApplicationController
-  before_action :authenticate_user!
-  before_action :load_book_favorite, only: :destroy
-  before_action :correct_user, only: :destroy
+  load_and_authorize_resource
   def create
     @book_favorite =  current_user.book_favorites.build book_favorite_params
     if @book_favorite.save
@@ -33,15 +31,5 @@ class BookFavoritesController < ApplicationController
 
   def book_favorite_params
     params.permit(:book_id)
-  end
-
-  def load_book_favorite
-    @book_favorite =  BookFavorite.find_by id: params[:id]
-  end
-
-  def correct_user
-    return if current_user == @book_favorite.user
-    redirect_to(books_path)
-    flash[:danger] = t "flash.wronguser"
   end
 end

@@ -1,8 +1,5 @@
 class RelationshipsController < ApplicationController
-  before_action :authenticate_user!
-  before_action :load_relationship,  only: :destroy
-  before_action :correct_user,  only: :destroy
-
+  load_and_authorize_resource
   def create
     @user = User.find_by id: params[:followed_id]
     current_user.follow @user
@@ -28,11 +25,5 @@ class RelationshipsController < ApplicationController
     return if @relationship
     redirect_to root_path
     flash[:danger] = t "flash.error"
-  end
-
-  def correct_user
-    return if current_user == @relationship.follower
-    flash[:danger] = t "flash.wronguser"
-    redirect_to root_path
   end
 end

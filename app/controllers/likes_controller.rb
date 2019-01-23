@@ -1,8 +1,5 @@
 class LikesController < ApplicationController
-  before_action :authenticate_user!
-  before_action :load_like, only: :destroy
-  before_action :correct_user, only: :destroy
-
+  load_and_authorize_resource
   def create
     @like =  current_user.likes.build(like_params)
     if(@like.save)
@@ -33,15 +30,5 @@ class LikesController < ApplicationController
 
   def like_params
     params.permit(:activity_id)
-  end
-
-  def load_like
-    @like =  Like.find_by id: params[:id]
-  end
-
-  def correct_user
-    return if current_user == @like.user
-    flash[:danger] = t "flash.wronguser"
-    redirect_to root_path
   end
 end

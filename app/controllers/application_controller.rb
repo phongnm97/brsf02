@@ -6,7 +6,15 @@ class ApplicationController < ActionController::Base
   rescue_from CanCan::AccessDenied do
     respond_to do |format|
       format.html do
-        redirect_to root_path, alert: t("errors.messages.access_denied")
+        redirect_to root_path, alert: t("errors.access_denied")
+      end
+    end
+  end
+
+  rescue_from ActiveRecord::RecordNotFound do
+    respond_to do |format|
+      format.html do
+        redirect_to root_path, alert: t("errors.record_notfound")
       end
     end
   end

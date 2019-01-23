@@ -1,6 +1,5 @@
 class Admin::UsersController < AdminController
   layout "admin"
-  before_action :load_user, except: [:index]
 
   def index
     @users = User.newest.paginate page: params[:page],

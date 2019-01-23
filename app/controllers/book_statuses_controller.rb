@@ -1,7 +1,5 @@
 class BookStatusesController < ApplicationController
-  before_action :authenticate_user!
-  before_action :load_book_status, except: :create
-  before_action :correct_user, except: :create
+  load_and_authorize_resource
   def create
     @book_status =  current_user.book_statuses.build book_status_params
     if @book_status.save
@@ -44,18 +42,5 @@ class BookStatusesController < ApplicationController
 
   def book_status_params
     params.require(:book_status).permit :book_id, :status
-  end
-
-  def load_book_status
-    @book_status = BookStatus.find_by id: params[:id]
-    return if @book_status
-    redirect_to books_path
-    flash[:danger] = t "flash.wronguser"
-  end
-
-  def correct_user
-    return if current_user == @book_status.user
-    redirect_to books_path
-    flash[:danger] = t "flash.wronguser"
   end
 end

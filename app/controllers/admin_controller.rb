@@ -1,7 +1,9 @@
 class AdminController < ApplicationController
-  before_action :authenticate_user!, :admin_user
+  load_and_authorize_resource
+  before_action :check_admin
 
-  def admin_user
-    redirect_to(root_path) unless current_user.admin?
+  def check_admin
+    authorize! :manage, :all
   end
+
 end

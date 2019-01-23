@@ -1,6 +1,5 @@
 class Admin::CategoriesController < AdminController
   layout "admin"
-  before_action :load_category, except: [:index, :new, :create]
 
   def destroy
     if @category.destroy
